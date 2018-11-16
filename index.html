@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+</head>
+<body>
+    <div id="weather"></div>
+    <p><span id="temp"></span></p>
+    <p><span id="temp"></span></p>
+
+    <script>
+    var weather = new XMLHttpRequest();
+    weather.open("GET", "api.openweathermap.org/data/2.5/weather?lat=35&lon=139", false);
+    weather.send(null);
+
+    var r = JSON.parse(weather.response);
+    var dis = "Current location: " + r.current_observation.display_location.full + " <br />";
+    var temp = r.current_observation.temperature_string + "<br />";
+    var wind = r.current_observation.wind_string + "<br />";
+    document.getElementById("weather")
+    </script>
+</body>
+</html>
